@@ -1,0 +1,8 @@
+{
+  "name": "E-Cell TAE",
+  "description": "Official platform of E-Cell TAE Pune. IGNITION T3 Entrepreneurship Championship in association with IIT Bombay Eureka! 2026.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
