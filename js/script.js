@@ -265,34 +265,62 @@ function initNavbarScroll() {
 function initMobileMenu() {
   const toggleBtn = document.querySelector('.nav-toggle-btn');
   const navMenu = document.querySelector('.nav-menu');
-  const navLinks = document.querySelectorAll('.nav-link');
 
   if (!toggleBtn || !navMenu) return;
 
-  const toggleMenu = () => {
-    const isActive = toggleBtn.classList.toggle('is-active');
-    navMenu.classList.toggle('is-open');
-    toggleBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-    document.body.style.overflow = isActive ? 'hidden' : '';
+  const closeMenu = () => {
+    toggleBtn.classList.remove('is-active');
+    navMenu.classList.remove('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+
+  const openMenu = () => {
+    toggleBtn.classList.add('is-active');
+    navMenu.classList.add('is-open');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const toggleMenu = (e) => {
+    if (e) e.stopPropagation();
+    if (navMenu.classList.contains('is-open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   };
 
   toggleBtn.addEventListener('click', toggleMenu);
 
-  // Close menu when clicking any nav link
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (navMenu.classList.contains('is-open')) {
-        toggleMenu();
-      }
-    });
+  // Close menu when clicking ANY link or button inside the menu
+  navMenu.addEventListener('click', (e) => {
+    const targetLink = e.target.closest('a, button');
+    if (targetLink && navMenu.classList.contains('is-open')) {
+      closeMenu();
+    }
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (navMenu.classList.contains('is-open') && !navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+      closeMenu();
+    }
   });
 
   // Close menu on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
-      toggleMenu();
+      closeMenu();
     }
   });
+
+  // Auto-close on resize to desktop dimensions
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1120 && navMenu.classList.contains('is-open')) {
+      closeMenu();
+    }
+  }, { passive: true });
 }
 
 /**

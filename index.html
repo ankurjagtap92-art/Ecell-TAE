@@ -57,51 +57,60 @@
             <li><a href="#/admin" class="nav-link" id="nav-admin-link" style="color: #fb923c; font-weight: 600;"><span style="display: inline-block; width: 7px; height: 7px; background: #10B981; border-radius: 50%; margin-right: 5px;"></span>Admin Portal</a></li>
             <!-- Mobile Menu Quick Action Buttons -->
             <li class="mobile-menu-actions-item" style="display: none; width: 100%; padding-top: 14px; border-top: 1px solid var(--border-subtle); margin-top: 6px;">
-              <div style="display: flex; flex-direction: column; gap: 8px; width: 100%;">
-                <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
-                  <a href="#/login" class="btn btn-secondary btn-sm" id="mobile-nav-login-btn" style="flex: 1; justify-content: center; text-decoration: none;">
-                    <span>Login / Portal</span>
+              <div class="mobile-menu-actions-deck">
+                <div class="mobile-menu-primary-actions">
+                  <a href="#/register" class="btn btn-primary btn-sm mobile-action-card" id="mobile-nav-register-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                      <line x1="12" y1="5" x2="12" y2="19"></line>
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    <span>Register Startup (Free)</span>
                   </a>
-                  <a href="#/register" class="btn btn-primary btn-sm" id="mobile-nav-register-btn" style="flex: 1; justify-content: center; text-decoration: none;">
-                    <span>Register Team</span>
+                  <a href="#/login" class="btn btn-secondary btn-sm mobile-action-card" id="mobile-nav-login-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+                      <polyline points="10 17 15 12 10 7"></polyline>
+                      <line x1="15" y1="12" x2="3" y2="12"></line>
+                    </svg>
+                    <span>Startup Portal Login</span>
                   </a>
                 </div>
-                <div style="display: flex; align-items: center; gap: 10px; width: 100%;">
-                  <a href="https://www.ecell.in/eureka/" target="_blank" rel="noopener noreferrer" class="btn btn-eureka-nav btn-sm" style="flex: 1; justify-content: center; text-decoration: none;">
-                    <span>Eureka! Registration ↗</span>
+                <div class="mobile-menu-external-actions">
+                  <a href="https://www.ecell.in/eureka/" target="_blank" rel="noopener noreferrer" class="btn btn-eureka-nav btn-sm mobile-action-card" id="mobile-nav-eureka-btn">
+                    <span>⚡ Eureka! IIT Bombay ↗</span>
                   </a>
-                  <a href="https://unstop.com/" target="_blank" rel="noopener noreferrer" class="btn btn-unstop btn-sm" style="flex: 1; justify-content: center; text-decoration: none;">
-                    <span>Unstop Portal ↗</span>
+                  <a href="https://unstop.com/" target="_blank" rel="noopener noreferrer" class="btn btn-unstop btn-sm mobile-action-card" id="mobile-nav-unstop-btn">
+                    <span>🚀 Unstop Portal ↗</span>
                   </a>
                 </div>
-                <div>
-                  <a href="#/admin" class="btn btn-secondary btn-sm" style="width: 100%; justify-content: center; text-decoration: none; border-color: rgba(249,115,22,0.4); color: #fb923c;">
-                    <span>🔒 Admin Dashboard</span>
+                <div class="mobile-menu-admin-wrapper">
+                  <a href="#/admin" class="btn btn-secondary btn-sm mobile-action-admin" id="mobile-nav-admin-btn">
+                    <span>🔒 Admin Database Portal</span>
                   </a>
                 </div>
               </div>
             </li>
             <!-- Mobile Menu Social Handles (Visible on mobile dropdown) -->
             <li class="mobile-menu-social-item" style="display: none; width: 100%; padding-top: 10px; margin-top: 4px;">
-              <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 8px; flex-wrap: wrap;">
-                <a href="https://www.linkedin.com/in/e-cell-tae-bb84b942a/" target="_blank" rel="noopener noreferrer" class="social-pill pill-linkedin" style="flex: 1; justify-content: center; min-width: 100px;" title="LinkedIn: E-Cell TAE">
-                  <svg class="pill-icon-linkedin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <div class="mobile-social-pills-row">
+                <a href="https://www.linkedin.com/in/e-cell-tae-bb84b942a/" target="_blank" rel="noopener noreferrer" class="social-pill pill-linkedin" title="LinkedIn: E-Cell TAE">
+                  <svg class="pill-icon-linkedin" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                     <rect x="2" y="9" width="4" height="12"></rect>
                     <circle cx="4" cy="4" r="2"></circle>
                   </svg>
                   <span>LinkedIn</span>
                 </a>
-                <a href="https://www.instagram.com/ecell_tae" target="_blank" rel="noopener noreferrer" class="social-pill pill-instagram" style="flex: 1; justify-content: center; min-width: 100px;">
-                  <svg class="pill-icon-instagram" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <a href="https://www.instagram.com/ecell_tae" target="_blank" rel="noopener noreferrer" class="social-pill pill-instagram">
+                  <svg class="pill-icon-instagram" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                   </svg>
                   <span>Instagram</span>
                 </a>
-                <a href="https://www.youtube.com/@ecell-r9k" target="_blank" rel="noopener noreferrer" class="social-pill pill-youtube" style="flex: 1; justify-content: center; min-width: 100px;">
-                  <svg class="pill-icon-youtube" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <a href="https://www.youtube.com/@ecell-r9k" target="_blank" rel="noopener noreferrer" class="social-pill pill-youtube">
+                  <svg class="pill-icon-youtube" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
                     <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"></polygon>
                   </svg>
@@ -162,12 +171,17 @@
           </a>
         </div>
 
-        <!-- Mobile Hamburger Button -->
-        <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="primary-nav-menu">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
+        <!-- Mobile Header Controls (Quick Register CTA + Hamburger) -->
+        <div class="nav-mobile-controls" id="nav-mobile-controls">
+          <a href="#/register" class="btn btn-primary btn-xs nav-mobile-quick-reg" id="nav-mobile-quick-reg" aria-label="Register for Ignition T3">
+            <span>Register</span>
+          </a>
+          <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="primary-nav-menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -1671,18 +1685,17 @@
                               AFFILIATE VERIFIED
                             </span>
                           </div>
-                          <div style="position: relative; display: flex; align-items: center;">
+                          <div class="necid-input-wrapper">
                             <input
                               type="text"
                               id="p-leader-necid"
                               name="p_leader_necid"
-                              class="form-input form-input-lg"
+                              class="form-input form-input-lg necid-input-field"
                               value="NEC2685500"
                               readonly
                               required
-                              style="background: rgba(249, 115, 22, 0.08); border-color: rgba(249, 115, 22, 0.4); color: #fb923c; font-weight: 800; letter-spacing: 0.06em; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 1.05rem; padding-right: 140px;"
                             />
-                            <div style="position: absolute; right: 8px; display: flex; align-items: center; gap: 5px; background: rgba(249, 115, 22, 0.2); border: 1px solid rgba(249, 115, 22, 0.45); padding: 4px 10px; border-radius: 6px; font-size: 0.72rem; color: #fed7aa; font-weight: 700; text-transform: uppercase; pointer-events: none;">
+                            <div class="necid-badge-pill">
                               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>

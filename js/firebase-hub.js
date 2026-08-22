@@ -32,6 +32,15 @@ let isEcellFirebaseLive = false;
 // 1. Initialize Firebase & Firestore
 try {
   if (typeof firebase !== 'undefined') {
+    // Set Firestore log level to silent to suppress harmless offline/backend reachability notifications in sandboxes
+    if (firebase.firestore && typeof firebase.firestore.setLogLevel === 'function') {
+      try {
+        firebase.firestore.setLogLevel('silent');
+      } catch (logErr) {
+        // Silently ignore
+      }
+    }
+
     if (!firebase.apps || !firebase.apps.length) {
       ecellFirebaseApp = firebase.initializeApp(ECELL_FIREBASE_CONFIG);
     } else {
@@ -39,6 +48,28 @@ try {
     }
 
     ecellFirestore = firebase.firestore();
+
+    // Use HTTP long polling to prevent WebSocket handshake stalls in iframe sandbox environments
+    try {
+      ecellFirestore.settings({
+        experimentalForceLongPolling: true,
+        ignoreUndefinedProperties: true
+      });
+    } catch (settingErr) {
+      // Settings must be applied before any Firestore operation
+    }
+
+    // Enable multi-tab offline persistence for seamless local read/write
+    try {
+      if (typeof ecellFirestore.enablePersistence === 'function') {
+        ecellFirestore.enablePersistence({ synchronizeTabs: true }).catch((pErr) => {
+          // Persistence may already be active or multi-tab restricted; silently fallback
+        });
+      }
+    } catch (persistErr) {
+      // Offline fallback
+    }
+
     isEcellFirebaseLive = true;
 
     if (typeof firebase.analytics === 'function') {
@@ -201,6 +232,8 @@ const ECellDatabase = {
         }
       ],
       deckUrl: teamData.deckUrl || '',
+      deckFile: teamData.deckFile || null,
+      deckSubmittedAt: teamData.deckSubmittedAt || (teamData.deckUrl || teamData.deckFile ? new Date().toISOString() : null),
       stage: teamData.stage || 'Round 1 Submission',
       status: 'active',
       source: 'web_portal',
